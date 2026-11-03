@@ -222,7 +222,8 @@ function Contact() {
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const d = new FormData(e.currentTarget);
-    const v = Object.fromEntries(["name", "email", "service", "message"].map((k) => [k, String(d.get(k) ?? "").trim()]));
+    const g = (k: string) => String(d.get(k) ?? "").trim();
+    const v = { name: g("name"), email: g("email"), service: g("service"), message: g("message") };
     const er: Errors = {};
     if (v.name.length < 2 || v.name.length > 100) er.name = f.errors.name;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email) || v.email.length > 255) er.email = f.errors.email;

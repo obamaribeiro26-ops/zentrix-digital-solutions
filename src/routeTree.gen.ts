@@ -10,33 +10,116 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactosRouteImport } from './routes/contactos'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as ServicosAplicacoesRouteImport } from './routes/servicos.aplicacoes'
+import { Route as ServicosCriacaoWebsitesRouteImport } from './routes/servicos.criacao-websites'
+import { Route as ServicosManutencaoComputadoresRouteImport } from './routes/servicos.manutencao-computadores'
+import { Route as ServicosSoftwareRouteImport } from './routes/servicos.software'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactosRoute = ContactosRouteImport.update({
+  id: '/contactos',
+  path: '/contactos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosAplicacoesRoute = ServicosAplicacoesRouteImport.update({
+  id: '/servicos/aplicacoes',
+  path: '/servicos/aplicacoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosCriacaoWebsitesRoute = ServicosCriacaoWebsitesRouteImport.update({
+  id: '/servicos/criacao-websites',
+  path: '/servicos/criacao-websites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosManutencaoComputadoresRoute =
+  ServicosManutencaoComputadoresRouteImport.update({
+    id: '/servicos/manutencao-computadores',
+    path: '/servicos/manutencao-computadores',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicosSoftwareRoute = ServicosSoftwareRouteImport.update({
+  id: '/servicos/software',
+  path: '/servicos/software',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contactos': typeof ContactosRoute
+  '/sobre': typeof SobreRoute
+  '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
+  '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
+  '/servicos/manutencao-computadores': typeof ServicosManutencaoComputadoresRoute
+  '/servicos/software': typeof ServicosSoftwareRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contactos': typeof ContactosRoute
+  '/sobre': typeof SobreRoute
+  '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
+  '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
+  '/servicos/manutencao-computadores': typeof ServicosManutencaoComputadoresRoute
+  '/servicos/software': typeof ServicosSoftwareRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contactos': typeof ContactosRoute
+  '/sobre': typeof SobreRoute
+  '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
+  '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
+  '/servicos/manutencao-computadores': typeof ServicosManutencaoComputadoresRoute
+  '/servicos/software': typeof ServicosSoftwareRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contactos'
+    | '/sobre'
+    | '/servicos/aplicacoes'
+    | '/servicos/criacao-websites'
+    | '/servicos/manutencao-computadores'
+    | '/servicos/software'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contactos'
+    | '/sobre'
+    | '/servicos/aplicacoes'
+    | '/servicos/criacao-websites'
+    | '/servicos/manutencao-computadores'
+    | '/servicos/software'
+  id:
+    | '__root__'
+    | '/'
+    | '/contactos'
+    | '/sobre'
+    | '/servicos/aplicacoes'
+    | '/servicos/criacao-websites'
+    | '/servicos/manutencao-computadores'
+    | '/servicos/software'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactosRoute: typeof ContactosRoute
+  SobreRoute: typeof SobreRoute
+  ServicosAplicacoesRoute: typeof ServicosAplicacoesRoute
+  ServicosCriacaoWebsitesRoute: typeof ServicosCriacaoWebsitesRoute
+  ServicosManutencaoComputadoresRoute: typeof ServicosManutencaoComputadoresRoute
+  ServicosSoftwareRoute: typeof ServicosSoftwareRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +131,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contactos': {
+      id: '/contactos'
+      path: '/contactos'
+      fullPath: '/contactos'
+      preLoaderRoute: typeof ContactosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/aplicacoes': {
+      id: '/servicos/aplicacoes'
+      path: '/servicos/aplicacoes'
+      fullPath: '/servicos/aplicacoes'
+      preLoaderRoute: typeof ServicosAplicacoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/criacao-websites': {
+      id: '/servicos/criacao-websites'
+      path: '/servicos/criacao-websites'
+      fullPath: '/servicos/criacao-websites'
+      preLoaderRoute: typeof ServicosCriacaoWebsitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/manutencao-computadores': {
+      id: '/servicos/manutencao-computadores'
+      path: '/servicos/manutencao-computadores'
+      fullPath: '/servicos/manutencao-computadores'
+      preLoaderRoute: typeof ServicosManutencaoComputadoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos/software': {
+      id: '/servicos/software'
+      path: '/servicos/software'
+      fullPath: '/servicos/software'
+      preLoaderRoute: typeof ServicosSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactosRoute: ContactosRoute,
+  SobreRoute: SobreRoute,
+  ServicosAplicacoesRoute: ServicosAplicacoesRoute,
+  ServicosCriacaoWebsitesRoute: ServicosCriacaoWebsitesRoute,
+  ServicosManutencaoComputadoresRoute: ServicosManutencaoComputadoresRoute,
+  ServicosSoftwareRoute: ServicosSoftwareRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

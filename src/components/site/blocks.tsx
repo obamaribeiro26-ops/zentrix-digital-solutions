@@ -68,7 +68,7 @@ export function PrimaryLink({ to, children }: { to: string; children: ReactNode 
   );
 }
 export function GhostLink({ to, hash, children }: { to: string; hash?: string; children: ReactNode }) {
-  return <Link to={to} hash={hash} className="inline-flex items-center border border-foreground/30 px-6 py-3.5 font-medium transition-colors hover:border-foreground">{children}</Link>;
+  return <Link to={to} {...(hash ? { hash } : {})} className="inline-flex items-center border border-foreground/30 px-6 py-3.5 font-medium transition-colors hover:border-foreground">{children}</Link>;
 }
 
 export function SectionHead({ eyebrow, title, lead }: { eyebrow: string; title: ReactNode; lead?: string }) {

@@ -52,10 +52,10 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
           Este formulário não envia mensagens automaticamente. Escolha um canal abaixo para nos fazer chegar o pedido.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          {siteConfig.whatsapp && <a href={`https://wa.me/${siteConfig.whatsapp}?text=${text}`} target="_blank" rel="noreferrer" className="bg-primary px-5 py-3 font-medium text-primary-foreground">Enviar por WhatsApp</a>}
-          {siteConfig.email && <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Pedido de orçamento")}&body=${text}`} className="border border-border px-5 py-3 font-medium hover:border-foreground">Enviar por email</a>}
+          {siteConfig.whatsapp && <a href={`https://wa.me/${siteConfig.whatsapp}?text=${text}`} target="_blank" rel="noreferrer noopener" className="rounded-full bg-primary px-5 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90">Enviar por WhatsApp</a>}
+          {siteConfig.email && <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Pedido de orçamento")}&body=${text}`} className="rounded-full border border-border px-5 py-3 font-medium transition-colors hover:border-foreground">Enviar por email</a>}
           <button type="button" onClick={async () => { try { await navigator.clipboard.writeText(summary); setCopied(true); } catch { setCopied(false); } }}
-            className="border border-border px-5 py-3 font-medium hover:border-foreground">{copied ? "Copiado ✓" : "Copiar texto do pedido"}</button>
+            className="rounded-full border border-border px-5 py-3 font-medium transition-colors hover:border-foreground">{copied ? "Copiado ✓" : "Copiar texto do pedido"}</button>
         </div>
         {!siteConfig.whatsapp && !siteConfig.email && (
           <p className="mt-6 border-l-2 border-primary pl-4 text-sm text-muted-foreground">Os canais oficiais (WhatsApp e email) ainda não foram configurados neste site. O texto do pedido pode ser copiado e guardado.</p>
@@ -94,7 +94,7 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         <textarea id="message" name="message" rows={5} maxLength={2000} placeholder="Ex.: portátil a aquecer e a desligar sozinho; ou loja online para 40 produtos." className={field} {...aria("message")} />
         <Err k="message" />
       </div>
-      <button type="submit" className="group inline-flex items-center justify-center gap-3 bg-primary px-6 py-4 font-medium text-primary-foreground transition-shadow hover:glow-primary">
+      <button type="submit" className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 font-medium text-primary-foreground transition-shadow hover:glow-primary">
         Preparar pedido <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
       </button>
     </form>

@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { services } from "@/content/services";
-import { siteConfig, telHref } from "@/lib/site-config";
+import { mailtoHref, siteConfig, telHref, waHref } from "@/lib/site-config";
 
 export function Mark({ className = "" }: { className?: string }) {
   return (
@@ -103,7 +103,6 @@ export function SiteHeader() {
 }
 
 export function SiteFooter() {
-  const hasContact = siteConfig.email || siteConfig.whatsapp;
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1.2fr_1fr] md:px-8">
@@ -128,17 +127,18 @@ export function SiteFooter() {
         </nav>
         <div>
           <h2 className="eyebrow">Contacto</h2>
-          <ul className="mt-4 space-y-2.5 text-sm">
-            {siteConfig.team.map((m) => <li key={m.name}><a href={telHref(m.phone)} className="text-muted-foreground hover:text-foreground"><span className="text-foreground">{m.name}</span> — {m.phone}</a></li>)}
+          <ul className="mt-4 space-y-4 text-sm">
+            {siteConfig.team.map((m) => (
+              <li key={m.name}>
+                <span className="block font-medium text-foreground">{m.name}</span>
+                <a href={telHref(m.phone)} className="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground">{m.phone}</a>
+                <span aria-hidden className="text-muted-foreground/50"> · </span>
+                <a href={waHref(m.phone)} target="_blank" rel="noreferrer noopener" className="text-xs text-muted-foreground transition-colors hover:text-foreground">WhatsApp</a>
+                <a href={mailtoHref(m.email)} className="block break-all text-xs text-muted-foreground transition-colors hover:text-foreground">{m.email}</a>
+              </li>
+            ))}
           </ul>
-          {hasContact ? (
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {siteConfig.email && <li><a href={`mailto:${siteConfig.email}`} className="text-muted-foreground hover:text-foreground">{siteConfig.email}</a></li>}
-              {siteConfig.whatsapp && <li><a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground">WhatsApp</a></li>}
-            </ul>
-          ) : (
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Email e redes sociais oficiais serão publicados aqui.</p>
-          )}
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Redes sociais oficiais serão publicadas aqui.</p>
         </div>
       </div>
       <div className="border-t border-border">

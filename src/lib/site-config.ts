@@ -6,7 +6,7 @@ const lulenio: TeamMember = { name: "Lulénio", phone: "+244 933 745 645", email
 
 export const team: TeamMember[] = [
   lulenio,
-  { name: "Príncipe", phone: "+244 933 745 645", email: "Principefrederico@hotmail.com" },
+  { name: "Príncipe", phone: "+244 935 496 242", email: "Principefrederico@hotmail.com" },
   { name: "Antonela", phone: "+244 928 344 129", email: "antonellatucayana@gmail.com" },
   { name: "Obama", phone: "+244 933 623 141", email: "obamaribeiro26@gmail.com" },
 ];

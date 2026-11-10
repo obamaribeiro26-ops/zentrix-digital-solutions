@@ -4,11 +4,6 @@ import { en } from "./en";
 import { fr } from "./fr";
 import { es } from "./es";
 import { de } from "./de";
-import { it } from "./it";
-import { zh } from "./zh";
-import { ar } from "./ar";
-import { sw } from "./sw";
-import { ln } from "./ln";
 
 export const LOCALES = [
   { code: "pt", label: "Português", htmlLang: "pt-AO", dir: "ltr" },
@@ -16,16 +11,11 @@ export const LOCALES = [
   { code: "fr", label: "Français", htmlLang: "fr", dir: "ltr" },
   { code: "es", label: "Español", htmlLang: "es", dir: "ltr" },
   { code: "de", label: "Deutsch", htmlLang: "de", dir: "ltr" },
-  { code: "it", label: "Italiano", htmlLang: "it", dir: "ltr" },
-  { code: "zh", label: "简体中文", htmlLang: "zh-CN", dir: "ltr" },
-  { code: "ar", label: "العربية", htmlLang: "ar", dir: "rtl" },
-  { code: "sw", label: "Kiswahili", htmlLang: "sw", dir: "ltr" },
-  { code: "ln", label: "Lingála", htmlLang: "ln", dir: "ltr" },
 ] as const;
 
 export type LocaleCode = (typeof LOCALES)[number]["code"];
 
-const DICTS: Record<LocaleCode, Dict> = { pt, en, fr, es, de, it, zh, ar, sw, ln };
+const DICTS: Record<LocaleCode, Dict> = { pt, en, fr, es, de };
 const STORAGE_KEY = "zentrix-lang";
 
 type I18nCtx = { locale: LocaleCode; setLocale: (l: LocaleCode) => void; t: Dict; dir: "ltr" | "rtl" };

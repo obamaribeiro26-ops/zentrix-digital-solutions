@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { services } from "@/content/services";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, telHref } from "@/lib/site-config";
 
 export function Mark({ className = "" }: { className?: string }) {
   return (
@@ -128,13 +128,16 @@ export function SiteFooter() {
         </nav>
         <div>
           <h2 className="eyebrow">Contacto</h2>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {siteConfig.team.map((m) => <li key={m.name}><a href={telHref(m.phone)} className="text-muted-foreground hover:text-foreground"><span className="text-foreground">{m.name}</span> — {m.phone}</a></li>)}
+          </ul>
           {hasContact ? (
             <ul className="mt-4 space-y-2.5 text-sm">
               {siteConfig.email && <li><a href={`mailto:${siteConfig.email}`} className="text-muted-foreground hover:text-foreground">{siteConfig.email}</a></li>}
               {siteConfig.whatsapp && <li><a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground">WhatsApp</a></li>}
             </ul>
           ) : (
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Email, WhatsApp e redes sociais oficiais serão publicados aqui.</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Email e redes sociais oficiais serão publicados aqui.</p>
           )}
         </div>
       </div>

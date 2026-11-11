@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { services } from "@/content/services";
 import { mailtoHref, siteConfig, telHref, waHref } from "@/lib/site-config";
 
@@ -52,10 +53,10 @@ export function SiteHeader() {
         <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
           <Link to="/" activeOptions={{ exact: true }} className={navLink}>Início</Link>
           <div className="relative" ref={ddRef} onMouseLeave={() => setDd(false)}>
-            <button type="button" aria-expanded={dd} aria-controls="dd-servicos" onClick={() => setDd(!dd)} onMouseEnter={() => setDd(true)}
-              className={`flex items-center gap-1.5 text-sm transition-colors hover:text-foreground ${inServices ? "text-foreground" : "text-muted-foreground"}`}>
+            <Button variant="ghost" type="button" aria-expanded={dd} aria-controls="dd-servicos" onClick={() => setDd(!dd)} onMouseEnter={() => setDd(true)}
+              className={`h-auto px-3 py-2 flex items-center gap-1.5 text-sm transition-colors hover:text-foreground ${inServices ? "text-foreground" : "text-muted-foreground"}`}>
               Serviços <span aria-hidden className={`text-[10px] transition-transform ${dd ? "rotate-180" : ""}`}>▾</span>
-            </button>
+            </Button>
             {dd && (
               <div id="dd-servicos" className="absolute left-1/2 top-full w-[26rem] -translate-x-1/2 pt-4">
                 <ul className="border border-border bg-popover p-2 shadow-2xl">
@@ -75,15 +76,16 @@ export function SiteHeader() {
             )}
           </div>
           <Link to="/sobre" className={navLink}>Sobre</Link>
+          <Link to="/jornada" className={navLink}>Jornada</Link>
           <Link to="/contactos" className={navLink}>Contactos</Link>
         </nav>
 
-        <Link to="/contactos" className="hidden border border-primary px-4 py-2 font-mono text-xs uppercase tracking-widest text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:inline-block">Pedir orçamento</Link>
+        <Link to="/contactos" className="rounded-full hidden border border-primary px-4 py-2 font-mono text-xs uppercase tracking-widest text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:inline-block">Pedir orçamento</Link>
 
-        <button type="button" className="p-2 md:hidden" aria-expanded={open} aria-controls="mnav" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)}>
+        <Button variant="ghost" type="button" className="h-10 w-10 flex-col gap-0 p-2 md:hidden" aria-expanded={open} aria-controls="mnav" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)}>
           <span className={`block h-px w-6 bg-foreground transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
           <span className={`mt-1.5 block h-px w-6 bg-foreground transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
-        </button>
+        </Button>
       </div>
 
       {open && (
@@ -94,8 +96,9 @@ export function SiteHeader() {
             {services.map((s) => <li key={s.slug}><Link to={s.slug} className="block py-2.5 text-muted-foreground data-[status=active]:text-foreground">{s.short}</Link></li>)}
           </ul>
           <Link to="/sobre" className="mt-4 block py-3 font-display text-xl">Sobre</Link>
+          <Link to="/jornada" className="block py-3 font-display text-xl">A Nossa Jornada</Link>
           <Link to="/contactos" className="block py-3 font-display text-xl">Contactos</Link>
-          <Link to="/contactos" className="mt-6 block bg-primary px-5 py-3.5 text-center font-medium text-primary-foreground">Pedir orçamento</Link>
+          <Link to="/contactos" className="rounded-full mt-6 block bg-primary px-5 py-3.5 text-center font-medium text-primary-foreground">Pedir orçamento</Link>
         </nav>
       )}
     </header>
@@ -116,6 +119,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2.5 text-sm">
             <li><Link to="/" className="text-muted-foreground hover:text-foreground">Início</Link></li>
             <li><Link to="/sobre" className="text-muted-foreground hover:text-foreground">Sobre a ZENTRIX</Link></li>
+            <li><Link to="/jornada" className="text-muted-foreground hover:text-foreground">A Nossa Jornada</Link></li>
             <li><Link to="/contactos" className="text-muted-foreground hover:text-foreground">Contactos e orçamento</Link></li>
           </ul>
         </nav>

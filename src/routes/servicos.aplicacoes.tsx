@@ -4,16 +4,23 @@ import { ServicePage } from "@/components/site/service-page";
 const t = "Aplicações web e mobile — ZENTRIX";
 const d = "Desenvolvimento de aplicações web e mobile, dashboards, portais de cliente e integrações.";
 export const Route = createFileRoute("/servicos/aplicacoes")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/servicos/aplicacoes" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/servicos/aplicacoes" }, { property: "og:image", content: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=630&q=75" }] }),
   component: () => (
     <ServicePage c={{
-      crumb: "Aplicações", eyebrow: "App Development",
+      crumb: "Aplicações", eyebrow: "Desenvolvimento de aplicações",
       title: <>Aplicações que as<br />pessoas <span className="text-primary">querem usar.</span></>,
       lead: "Apps web e mobile, dashboards e portais de cliente, desenhados à volta de tarefas reais.",
       photo: "1551288049-bebda4e38f71", alt: "Dashboard com gráficos num ecrã",
       introTitle: "Uma boa aplicação poupa passos.", intro: "Ajudamos a transformar uma ideia ou um processo manual numa aplicação clara: definimos o essencial para a primeira versão e deixamos espaço para crescer.",
       introPhoto: "1512941937669-90a1b58e7e9c", introAlt: "Smartphone com aplicações no ecrã",
       offerTitle: "Web, mobile e tudo o que os liga.",
+      scope: "A primeira versão é definida pelas tarefas essenciais. A proposta esclarece plataformas, perfis de acesso, integrações, testes e condições de publicação; custos de serviços externos e evolução são avaliados separadamente quando aplicável.",
+      useCases: [
+        { t: "Portal de pedidos", d: "Permitir que clientes consultem o estado de pedidos e partilhem documentos, com acessos definidos por perfil." },
+        { t: "Painel de acompanhamento", d: "Reunir indicadores e filtros para tornar os dados úteis à equipa, de acordo com as fontes disponíveis." },
+        { t: "Aplicação para tarefas no terreno", d: "Registar informações no telemóvel; avaliar sincronização e necessidades de funcionamento sem ligação." },
+        { t: "Reservas e marcações", d: "Organizar disponibilidade, pedidos e notificações conforme as regras reais de cada negócio." },
+      ],
       offer: [
         { t: "Aplicações web", d: "Ferramentas acessíveis no browser, sem instalação." },
         { t: "Aplicações mobile", d: "Apps para Android e iOS." },

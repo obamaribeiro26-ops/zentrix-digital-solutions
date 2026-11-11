@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep contact records in the shared site configuration and derive contact links from them so all pages agree.
+- Keep the company-creation journey on its own route; describe stages without implying dated or completed milestones.
+- Use the shared Button component for action controls and shared service-page sections for service content to preserve cross-page consistency.

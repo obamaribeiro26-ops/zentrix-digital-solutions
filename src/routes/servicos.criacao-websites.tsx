@@ -4,16 +4,23 @@ import { ServicePage } from "@/components/site/service-page";
 const t = "Criação de websites e lojas online — ZENTRIX";
 const d = "Sites institucionais, landing pages e lojas online responsivos, com manutenção e SEO técnico básico.";
 export const Route = createFileRoute("/servicos/criacao-websites")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/servicos/criacao-websites" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/servicos/criacao-websites" }, { property: "og:image", content: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&h=630&q=75" }] }),
   component: () => (
     <ServicePage c={{
-      crumb: "Criação de websites", eyebrow: "Web Development",
+      crumb: "Criação de websites", eyebrow: "Desenvolvimento web",
       title: <>Websites que explicam<br />o seu negócio <span className="text-primary">e vendem.</span></>,
       lead: "Sites institucionais, landing pages e lojas online, rápidos, legíveis no telemóvel e fáceis de actualizar.",
       photo: "1498050108023-c5249f4df085", alt: "Portátil com código numa secretária",
       introTitle: "Muitos clientes vão conhecê-lo primeiro pelo seu site.", intro: "Começamos pela estrutura e pelo conteúdo: o que o visitante precisa de saber, e que acção deve tomar. O design vem a seguir, ao serviço dessa mensagem.",
       introPhoto: "1522542550221-31fd19575a2d", introAlt: "Esboços de wireframes de páginas web",
       offerTitle: "Do primeiro site à loja online.",
+      scope: "Definimos por escrito as páginas, funcionalidades, conteúdos e acessos necessários. Domínio, alojamento, serviços de pagamento e manutenção são identificados na proposta, sem pressupor que estão incluídos em qualquer pedido.",
+      useCases: [
+        { t: "Apresentar uma empresa", d: "Organizar serviços, informação institucional e contactos para ajudar o visitante a perceber a oferta e pedir uma proposta." },
+        { t: "Divulgar uma campanha", d: "Uma página com mensagem focada e formulário de contacto, sem dispersar a atenção por conteúdos secundários." },
+        { t: "Vender um catálogo online", d: "Estruturar produtos, variantes e encomendas; escolher pagamentos e regras de entrega adequados ao negócio." },
+        { t: "Actualizar um site existente", d: "Rever navegação, leitura em telemóvel, acessibilidade e conteúdos, preservando o que já funciona." },
+      ],
       offer: [
         { t: "Sites institucionais", d: "Apresentação da empresa, serviços, equipa e contactos." },
         { t: "Landing pages", d: "Páginas focadas numa campanha, produto ou pedido de contacto." },

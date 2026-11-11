@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { mailtoHref, siteConfig, telHref, waHref, type TeamMember } from "@/lib/site-config";
 
 const pill =
@@ -27,10 +28,10 @@ function MemberCard({ m }: { m: TeamMember }) {
         {m.email}
       </a>
       <div className="mt-4 flex flex-wrap gap-2">
-        <a href={telHref(m.phone)} className={`${pill} bg-primary text-primary-foreground hover:bg-primary/90`}>
+        <Button asChild className="h-auto"><a href={telHref(m.phone)} className={pill}>
           Ligar
-        </a>
-        <a
+        </a></Button>
+        <Button asChild variant="outline" className="h-auto"><a
           href={waHref(m.phone)}
           target="_blank"
           rel="noreferrer noopener"
@@ -38,13 +39,13 @@ function MemberCard({ m }: { m: TeamMember }) {
           className={`${pill} border border-primary text-primary hover:bg-primary hover:text-primary-foreground`}
         >
           WhatsApp
-        </a>
-        <a
+        </a></Button>
+        <Button asChild variant="outline" className="h-auto"><a
           href={mailtoHref(m.email, "Pedido de orçamento — ZENTRIX")}
           className={`${pill} border border-border text-muted-foreground hover:border-foreground hover:text-foreground`}
         >
           Email
-        </a>
+        </a></Button>
       </div>
     </li>
   );

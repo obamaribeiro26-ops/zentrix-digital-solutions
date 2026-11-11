@@ -4,7 +4,7 @@ import { CtaBand, Ledger, PageHero, PrimaryLink, SectionHead, useReveal } from "
 const t = "Sobre a ZENTRIX — Technology & Digital Solutions";
 const d = "A ZENTRIX junta desenvolvimento digital e suporte técnico num só parceiro.";
 export const Route = createFileRoute("/sobre")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/sobre" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/sobre" }, { property: "og:image", content: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&h=630&q=75" }] }),
   component: Page,
 });
 

@@ -5,7 +5,7 @@ import { HonestNote, Photo, SectionHead } from "@/components/site/blocks";
 const t = "Manutenção e reparação de computadores — ZENTRIX";
 const d = "Diagnóstico, limpeza interna, substituição de componentes, optimização, remoção de malware e instalação de sistemas para portáteis e desktops.";
 export const Route = createFileRoute("/servicos/manutencao-computadores")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/servicos/manutencao-computadores" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/servicos/manutencao-computadores" }, { property: "og:image", content: "https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1550041473-d296a3a8a18a?auto=format&fit=crop&w=1200&h=630&q=75" }] }),
   component: Page,
 });
 
@@ -15,13 +15,21 @@ function Page() {
   return (
     <ServicePage
       c={{
-        crumb: "Manutenção de computadores", eyebrow: "IT Support · Portáteis e desktops",
+        crumb: "Manutenção de computadores", eyebrow: "Suporte informático · Portáteis e desktops",
         title: <>O seu computador,<br />diagnosticado e<br /><span className="text-primary">reparado com método.</span></>,
         lead: "Avaliamos o problema antes de mexer, explicamos o que encontrámos e só avançamos com a sua aprovação.",
         photo: "1550041473-d296a3a8a18a", alt: "Técnico a reparar a placa de um equipamento",
         introTitle: "Um computador que falha custa tempo e trabalho.", intro: "Tratamos de portáteis e desktops de uso pessoal e profissional: do aquecimento ao vírus, da peça avariada ao sistema que precisa de ser reinstalado. Trabalho técnico cuidadoso, com explicações claras.",
         introPhoto: "1620283085439-39620a1e21c4", introAlt: "Interior de um portátil aberto com placa-mãe e memória visíveis",
         offerTitle: "Serviços técnicos detalhados.",
+        cta: "Pedir assistência",
+        scope: "Ao contactar, indique o modelo, os sintomas e quando começaram. Antes de intervenções que possam afectar ficheiros, esclarecemos as opções de cópia de segurança; recuperação de dados, licenças e peças dependem de avaliação e não são resultados garantidos.",
+        useCases: [
+          { t: "Computador lento no trabalho", d: "Avaliar armazenamento, memória, programas de arranque e estado do sistema antes de recomendar alterações." },
+          { t: "Portátil que aquece", d: "Verificar ventilação e temperaturas para distinguir uma necessidade de limpeza de uma possível avaria." },
+          { t: "Equipamento que não liga", d: "Testar alimentação e componentes para identificar a origem do problema e a viabilidade da reparação." },
+          { t: "Preparar um computador para uso", d: "Configurar sistema e programas autorizados, actualizações e opções de segurança conforme as necessidades do utilizador." },
+        ],
         offer: [
           { t: "Diagnóstico", d: "Testes de hardware e software para identificar a causa real da avaria." },
           { t: "Limpeza interna", d: "Remoção de pó, limpeza de ventoinhas e substituição de pasta térmica." },

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { Button } from "@/components/ui/button";
 import { services } from "@/content/services";
 import { siteConfig } from "@/lib/site-config";
 
@@ -54,14 +55,14 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
         <div className="mt-6 flex flex-wrap gap-3">
           {siteConfig.whatsapp && <a href={`https://wa.me/${siteConfig.whatsapp}?text=${text}`} target="_blank" rel="noreferrer noopener" className="rounded-full bg-primary px-5 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90">Enviar por WhatsApp</a>}
           {siteConfig.email && <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Pedido de orçamento")}&body=${text}`} className="rounded-full border border-border px-5 py-3 font-medium transition-colors hover:border-foreground">Enviar por email</a>}
-          <button type="button" onClick={async () => { try { await navigator.clipboard.writeText(summary); setCopied(true); } catch { setCopied(false); } }}
-            className="rounded-full border border-border px-5 py-3 font-medium transition-colors hover:border-foreground">{copied ? "Copiado ✓" : "Copiar texto do pedido"}</button>
+          <Button variant="outline" type="button" onClick={async () => { try { await navigator.clipboard.writeText(summary); setCopied(true); } catch { setCopied(false); } }}
+            className="h-auto px-5 py-3">{copied ? "Copiado ✓" : "Copiar texto do pedido"}</Button>
         </div>
         {!siteConfig.whatsapp && !siteConfig.email && (
           <p className="mt-6 border-l-2 border-primary pl-4 text-sm text-muted-foreground">Os canais oficiais (WhatsApp e email) ainda não foram configurados neste site. O texto do pedido pode ser copiado e guardado.</p>
         )}
         <pre className="mt-6 max-h-48 overflow-auto whitespace-pre-wrap border border-border bg-background p-4 font-mono text-xs text-muted-foreground">{summary}</pre>
-        <button type="button" onClick={() => { setSummary(null); setCopied(false); }} className="mt-6 text-sm text-primary underline-offset-4 hover:underline">Editar pedido</button>
+        <Button variant="outline" type="button" onClick={() => { setSummary(null); setCopied(false); }} className="mt-6 text-sm text-primary">Editar pedido</Button>
       </div>
     );
   }
@@ -71,18 +72,18 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium">Nome</label>
-          <input id="name" name="name" autoComplete="name" maxLength={100} className={field} {...aria("name")} />
+          <input id="name" name="name" autoComplete="name" maxLength={100} className={`${field} rounded-full`} {...aria("name")} />
           <Err k="name" />
         </div>
         <div>
           <label htmlFor="email" className="text-sm font-medium">Email</label>
-          <input id="email" name="email" type="email" autoComplete="email" maxLength={255} className={field} {...aria("email")} />
+          <input id="email" name="email" type="email" autoComplete="email" maxLength={255} className={`${field} rounded-full`} {...aria("email")} />
           <Err k="email" />
         </div>
       </div>
       <div>
         <label htmlFor="service" className="text-sm font-medium">Serviço de interesse</label>
-        <select id="service" name="service" defaultValue={defaultService} className={field} {...aria("service")}>
+        <select id="service" name="service" defaultValue={defaultService} className={`${field} rounded-full`} {...aria("service")}>
           <option value="" disabled>Seleccione um serviço</option>
           {services.map((s) => <option key={s.slug} value={s.short}>{s.short}</option>)}
           <option value="Outro / Ainda não sei">Outro / Ainda não sei</option>
@@ -91,12 +92,12 @@ export function ContactForm({ defaultService = "" }: { defaultService?: string }
       </div>
       <div>
         <label htmlFor="message" className="text-sm font-medium">Mensagem</label>
-        <textarea id="message" name="message" rows={5} maxLength={2000} placeholder="Ex.: portátil a aquecer e a desligar sozinho; ou loja online para 40 produtos." className={field} {...aria("message")} />
+        <textarea id="message" name="message" rows={5} maxLength={2000} placeholder="Ex.: portátil a aquecer e a desligar sozinho; ou loja online para 40 produtos." className={`${field} rounded-2xl`} {...aria("message")} />
         <Err k="message" />
       </div>
-      <button type="submit" className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 font-medium text-primary-foreground transition-shadow hover:glow-primary">
+      <Button type="submit" className="h-auto group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-6 py-4 font-medium text-primary-foreground transition-shadow hover:glow-primary">
         Preparar pedido <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-      </button>
+      </Button>
     </form>
   );
 }

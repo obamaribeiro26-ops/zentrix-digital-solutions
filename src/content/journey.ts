@@ -1,0 +1,16 @@
+export const journey = [
+  { title: "Identificação da oportunidade", description: "Reconhecer problemas em que o desenvolvimento digital e a assistência informática podem criar valor." },
+  { title: "Definição da ideia de negócio", description: "Clarificar a proposta da ZENTRIX e a ligação entre websites, aplicações, software e suporte técnico." },
+  { title: "Pesquisa de mercado e necessidades dos clientes", description: "Ouvir potenciais clientes, analisar alternativas e compreender necessidades antes de definir a oferta." },
+  { title: "Definição do público-alvo", description: "Identificar quem precisa de cada serviço e adaptar a comunicação às suas prioridades." },
+  { title: "Missão, visão, valores e objectivos", description: "Definir os princípios de trabalho e os objectivos que orientam as decisões da empresa." },
+  { title: "Análise do meio envolvente", description: "Considerar o contexto económico, tecnológico e regulamentar relevante para a actividade." },
+  { title: "Análise SWOT", description: "Avaliar forças, fraquezas, oportunidades e ameaças para estabelecer prioridades realistas." },
+  { title: "Planeamento estratégico e financeiro", description: "Estruturar o plano de negócios, os recursos necessários, os custos e os critérios de sustentabilidade." },
+  { title: "Estruturação da empresa", description: "Organizar responsabilidades, formas de colaboração e processos de atendimento e execução." },
+  { title: "Identidade visual e marca", description: "Construir uma identidade coerente e um posicionamento claro para a ZENTRIX." },
+  { title: "Marketing e divulgação", description: "Planear a apresentação dos serviços e os canais de comunicação com os potenciais clientes." },
+  { title: "Constituição e legalização em Angola", description: "Considerar os requisitos legais aplicáveis à constituição e ao funcionamento da empresa. Esta etapa não confirma que o registo tenha ocorrido." },
+  { title: "Preparação e implementação", description: "Desenvolver o site e a apresentação dos serviços, preparar ferramentas de trabalho e organizar a implementação das actividades." },
+  { title: "Avaliação, crescimento e inovação", description: "Recolher feedback, rever processos e planear melhorias contínuas e novas soluções de forma sustentável." },
+];

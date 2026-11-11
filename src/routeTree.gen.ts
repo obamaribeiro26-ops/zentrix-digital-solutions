@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactosRouteImport } from './routes/contactos'
+import { Route as JornadaRouteImport } from './routes/jornada'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ServicosAplicacoesRouteImport } from './routes/servicos.aplicacoes'
 import { Route as ServicosCriacaoWebsitesRouteImport } from './routes/servicos.criacao-websites'
@@ -25,6 +26,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContactosRoute = ContactosRouteImport.update({
   id: '/contactos',
   path: '/contactos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JornadaRoute = JornadaRouteImport.update({
+  id: '/jornada',
+  path: '/jornada',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -57,6 +63,7 @@ const ServicosSoftwareRoute = ServicosSoftwareRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contactos': typeof ContactosRoute
+  '/jornada': typeof JornadaRoute
   '/sobre': typeof SobreRoute
   '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
   '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contactos': typeof ContactosRoute
+  '/jornada': typeof JornadaRoute
   '/sobre': typeof SobreRoute
   '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
   '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contactos': typeof ContactosRoute
+  '/jornada': typeof JornadaRoute
   '/sobre': typeof SobreRoute
   '/servicos/aplicacoes': typeof ServicosAplicacoesRoute
   '/servicos/criacao-websites': typeof ServicosCriacaoWebsitesRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contactos'
+    | '/jornada'
     | '/sobre'
     | '/servicos/aplicacoes'
     | '/servicos/criacao-websites'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contactos'
+    | '/jornada'
     | '/sobre'
     | '/servicos/aplicacoes'
     | '/servicos/criacao-websites'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contactos'
+    | '/jornada'
     | '/sobre'
     | '/servicos/aplicacoes'
     | '/servicos/criacao-websites'
@@ -115,6 +127,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactosRoute: typeof ContactosRoute
+  JornadaRoute: typeof JornadaRoute
   SobreRoute: typeof SobreRoute
   ServicosAplicacoesRoute: typeof ServicosAplicacoesRoute
   ServicosCriacaoWebsitesRoute: typeof ServicosCriacaoWebsitesRoute
@@ -136,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/contactos'
       fullPath: '/contactos'
       preLoaderRoute: typeof ContactosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jornada': {
+      id: '/jornada'
+      path: '/jornada'
+      fullPath: '/jornada'
+      preLoaderRoute: typeof JornadaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -179,6 +199,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactosRoute: ContactosRoute,
+  JornadaRoute: JornadaRoute,
   SobreRoute: SobreRoute,
   ServicosAplicacoesRoute: ServicosAplicacoesRoute,
   ServicosCriacaoWebsitesRoute: ServicosCriacaoWebsitesRoute,

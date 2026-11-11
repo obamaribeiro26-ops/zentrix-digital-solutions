@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/site/contact-form";
 const t = "Contactos e pedido de orçamento — ZENTRIX";
 const d = "Peça um orçamento à ZENTRIX para websites, aplicações, software ou manutenção de computadores.";
 export const Route = createFileRoute("/contactos")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/contactos" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/contactos" }, { property: "og:image", content: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1200&h=630&q=75" }] }),
   component: Page,
 });
 

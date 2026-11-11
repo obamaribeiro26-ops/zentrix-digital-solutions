@@ -5,6 +5,9 @@ export type ServiceContent = {
   crumb: string; eyebrow: string; title: ReactNode; lead: string; photo: string; alt: string;
   introTitle: string; intro: string; introPhoto: string; introAlt: string;
   offerTitle: string; offer: { t: string; d: string }[];
+  useCases: { t: string; d: string }[];
+  scope: string;
+  cta?: string;
   deliverables: string[];
   steps: { t: string; d: string }[];
   ctaTitle: string; ctaLead: string; ctaPhoto: string;
@@ -15,7 +18,7 @@ export function ServicePage({ c, extra }: { c: ServiceContent; extra?: ReactNode
   return (
     <>
       <PageHero photo={c.photo} alt={c.alt} eyebrow={c.eyebrow} title={c.title} lead={c.lead} crumbs={[{ label: "Serviços" }, { label: c.crumb }]}>
-        <PrimaryLink to="/contactos">Pedir orçamento</PrimaryLink>
+        <PrimaryLink to="/contactos">{c.cta ?? "Pedir orçamento"}</PrimaryLink>
         <GhostLink to="." hash="oferta">Ver o que inclui</GhostLink>
       </PageHero>
 
@@ -29,6 +32,14 @@ export function ServicePage({ c, extra }: { c: ServiceContent; extra?: ReactNode
       <section id="oferta" className="mx-auto max-w-7xl scroll-mt-20 px-5 py-24 md:px-8 md:py-32">
         <SectionHead eyebrow="O que fazemos" title={c.offerTitle} />
         <Ledger items={c.offer} />
+        <p className="mt-8 max-w-3xl border-l-2 border-primary pl-4 leading-relaxed text-muted-foreground">{c.scope}</p>
+      </section>
+
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
+          <SectionHead eyebrow="Na prática" title="Onde este serviço pode ajudar." lead="Exemplos de aplicação para definir o seu pedido — não representam projectos de clientes." />
+          <Ledger items={c.useCases} />
+        </div>
       </section>
 
       {extra}
@@ -47,7 +58,7 @@ export function ServicePage({ c, extra }: { c: ServiceContent; extra?: ReactNode
         <Steps steps={c.steps} />
       </section>
 
-      <CtaBand photo={c.ctaPhoto} title={c.ctaTitle} lead={c.ctaLead} />
+      <CtaBand photo={c.ctaPhoto} title={c.ctaTitle} lead={c.ctaLead} cta={c.cta ?? "Pedir orçamento"} />
     </>
   );
 }

@@ -5,7 +5,7 @@ import { services } from "@/content/services";
 const t = "ZENTRIX Technologies — Websites, aplicações, software e IT Support";
 const d = "Criação de websites, aplicações, software à medida e manutenção de computadores. The Center of Digital Solutions.";
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }),
+  head: () => ({ links: [{ rel: "canonical", href: "https://zentrix-web-and-software.lovable.app/" }], meta: [{ title: t }, { name: "description", content: d }, { property: "og:title", content: t }, { property: "og:description", content: d }, { property: "og:type", content: "website" }, { property: "og:url", content: "https://zentrix-web-and-software.lovable.app/" }, { property: "og:image", content: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:image", content: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&h=630&q=75" }, { name: "twitter:card", content: "summary_large_image" }] }),
   component: Index,
 });
 

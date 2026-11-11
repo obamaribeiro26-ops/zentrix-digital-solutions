@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Button } from "@/components/ui/button";
 import { img } from "@/lib/site-config";
 
 export function useReveal() {
@@ -62,13 +63,13 @@ export function PageHero({ photo, alt, eyebrow, title, lead, crumbs, children }:
 
 export function PrimaryLink({ to, children }: { to: string; children: ReactNode }) {
   return (
-    <Link to={to} className="group inline-flex items-center gap-3 bg-primary px-6 py-3.5 font-medium text-primary-foreground transition-shadow hover:glow-primary">
+    <Button asChild className="group h-auto px-6 py-3.5 text-base"><Link to={to}>
       {children}<span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-    </Link>
+    </Link></Button>
   );
 }
 export function GhostLink({ to, hash, children }: { to: string; hash?: string; children: ReactNode }) {
-  return <Link to={to} {...(hash ? { hash } : {})} className="inline-flex items-center border border-foreground/30 px-6 py-3.5 font-medium transition-colors hover:border-foreground">{children}</Link>;
+  return <Button asChild variant="outline" className="h-auto border-foreground/30 bg-transparent px-6 py-3.5 text-base"><Link to={to} {...(hash ? { hash } : {})}>{children}</Link></Button>;
 }
 
 export function SectionHead({ eyebrow, title, lead }: { eyebrow: string; title: ReactNode; lead?: string }) {
